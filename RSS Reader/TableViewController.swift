@@ -36,8 +36,7 @@ class TableViewController: UITableViewController, NSXMLParserDelegate {
     }
     
     func loadRss(url: NSURL) {
-        
-        println(url)
+        //println(url)
         feeds = []
         parser = NSXMLParser(contentsOfURL: url)!
         parser.shouldProcessNamespaces = false
@@ -50,7 +49,7 @@ class TableViewController: UITableViewController, NSXMLParserDelegate {
         
         tableView.rowHeight = 60
         tableView.reloadData()
-        println("reload data..")
+        //println("reload data..")
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,7 +57,7 @@ class TableViewController: UITableViewController, NSXMLParserDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String?, qualifiedName qName: String!, attributes attributeDict: [NSObject : AnyObject]) {
+    func parser(parser: NSXMLParser!, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
         
         element = elementName
         
@@ -93,7 +92,9 @@ class TableViewController: UITableViewController, NSXMLParserDelegate {
         if element.isEqualToString("title") {
             ftitle.appendString(string!)
         } else if element.isEqualToString("url") {
+            if string!.lowercaseString.rangeOfString("image") == nil {
             link.appendString(string!)
+            }
         }
     }
 
@@ -112,7 +113,6 @@ class TableViewController: UITableViewController, NSXMLParserDelegate {
             return 5
         }
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as UITableViewCell
@@ -125,6 +125,26 @@ class TableViewController: UITableViewController, NSXMLParserDelegate {
         cell.detailTextLabel?.text = feeds.objectAtIndex(indexPath.row).objectForKey("url") as? String
         
         return cell
+    }
+    
+    override func tableView(tableView:UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow();
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath!) as UITableViewCell!
+
+        let text = cell?.detailTextLabel?.text
+        
+        if let text = text {
+            NSLog("link: \(text)")
+        }
+        
+        var currentUrl: NSURL
+        currentUrl = NSURL(string:text!)!
+
+        NSLog("url: \(currentUrl)")
+        
+        // Open the link in Safari
+        UIApplication.sharedApplication().openURL(currentUrl)
     }
 
 }
