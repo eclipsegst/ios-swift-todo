@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AABE8628-872D-4A21-8490-AA18E0227EF6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ToDo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C9AF38155E09C670CE09C33793C9933ABF5F8D27</key>
+		<string>github.com:eclipsegst/ios-training.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ToDo/ToDo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C9AF38155E09C670CE09C33793C9933ABF5F8D27</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:eclipsegst/ios-training.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C9AF38155E09C670CE09C33793C9933ABF5F8D27</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C9AF38155E09C670CE09C33793C9933ABF5F8D27</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Zhao</string>
+		</dict>
+	</array>
+</dict>
+</plist>
