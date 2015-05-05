@@ -7,38 +7,94 @@
 //
 
 import UIKit
+import Foundation
 
-class TableViewController: UITableViewController {
+class TableViewController: UITableViewController, NSXMLParserDelegate {
     
     // Declare properties
-    var titles = NSMutableArray()
-    var links = NSMutableArray()
-
     
-    func loadInitialData() {
-        
-        titles = ["RSS 1", "RSS 2","RSS 3"]
-        links = ["Link 1", "Link 2", "Link 3"]
-        
-        return
-    }
+    var parser = NSXMLParser()
+    var feeds = NSMutableArray()
+    var elements = NSMutableDictionary()
+    var element = NSString()
+    
+    var ftitle = NSMutableString()
+    var link = NSMutableString()
+
+    var url: NSURL = NSURL()
+    
     
     override func viewDidLoad() {
         
-        loadInitialData()
-        
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        // Set feed url
+        url = NSURL(string: "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/technology/7.xml?api-key=sample-key")!
+        //url = NSURL(string: "http://feeds.skynews.com/feeds/rss/home.xml")!
+        //load feed
+        loadRss(url)
+    }
+    
+    func loadRss(url: NSURL) {
+        
+        println(url)
+        feeds = []
+        parser = NSXMLParser(contentsOfURL: url)!
+        parser.shouldProcessNamespaces = false
+        parser.shouldReportNamespacePrefixes = false
+        parser.shouldResolveExternalEntities = false
+        
+        // Have to add the line below or it won't execute the first parser func below
+        parser.delegate = self
+        parser.parse()
+        
+        tableView.rowHeight = 60
+        tableView.reloadData()
+        println("reload data..")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String?, qualifiedName qName: String!, attributes attributeDict: [NSObject : AnyObject]) {
+        
+        element = elementName
+        
+        if (element as NSString).isEqualToString("result") {
+            elements = NSMutableDictionary.alloc()
+            elements = [:]
+            ftitle = NSMutableString.alloc()
+            ftitle = ""
+            link = NSMutableString.alloc()
+            link = ""
+        }
+    }
+    
+    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        
+        if (elementName as NSString).isEqualToString("result") {
+            if ftitle != "" {
+                elements.setObject(ftitle, forKey: "title")
+                //println("ftitle = \(ftitle)")
+            }
+            
+            if link != "" {
+                elements.setObject(link, forKey: "url")
+                //println("link = \(url)")
+            }
+            
+            feeds.addObject(elements)
+        }
+    }
+    
+    func parser(parser: NSXMLParser, foundCharacters string: String?) {
+        if element.isEqualToString("title") {
+            ftitle.appendString(string!)
+        } else if element.isEqualToString("url") {
+            link.appendString(string!)
+        }
     }
 
     // MARK: - Table view data source
@@ -50,8 +106,11 @@ class TableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        //return titles.count
-        return titles.count
+        if(feeds.count > 0) {
+            return feeds.count
+        } else {
+            return 5
+        }
     }
 
     
@@ -60,56 +119,12 @@ class TableViewController: UITableViewController {
 
         // Configure the cell...
         
-        cell.textLabel?.text = self.titles[indexPath.row] as? String
-        cell.detailTextLabel?.text = self.links[indexPath.row] as? String
+        //println("feeds = \(feeds.count)")
+        
+        cell.textLabel?.text = feeds.objectAtIndex(indexPath.row).objectForKey("title") as? String
+        cell.detailTextLabel?.text = feeds.objectAtIndex(indexPath.row).objectForKey("url") as? String
         
         return cell
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
