@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		5626E92C1AF947130092D6EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626E92B1AF947130092D6EC /* AppDelegate.swift */; };
 		5626E92F1AF947130092D6EC /* RSS_Reader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5626E92D1AF947130092D6EC /* RSS_Reader.xcdatamodeld */; };
-		5626E9311AF947130092D6EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626E9301AF947130092D6EC /* ViewController.swift */; };
 		5626E9341AF947130092D6EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5626E9321AF947130092D6EC /* Main.storyboard */; };
 		5626E9361AF947130092D6EC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5626E9351AF947130092D6EC /* Images.xcassets */; };
 		5626E9391AF947130092D6EC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5626E9371AF947130092D6EC /* LaunchScreen.xib */; };
 		5626E9451AF947130092D6EC /* RSS_ReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626E9441AF947130092D6EC /* RSS_ReaderTests.swift */; };
 		5626E94F1AF947A60092D6EC /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5626E94E1AF947A60092D6EC /* README.md */; };
+		5626E9511AF948EF0092D6EC /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626E9501AF948EF0092D6EC /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +32,6 @@
 		5626E92A1AF947130092D6EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5626E92B1AF947130092D6EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5626E92E1AF947130092D6EC /* RSS_Reader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RSS_Reader.xcdatamodel; sourceTree = "<group>"; };
-		5626E9301AF947130092D6EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5626E9331AF947130092D6EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5626E9351AF947130092D6EC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5626E9381AF947130092D6EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -40,6 +39,7 @@
 		5626E9431AF947130092D6EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5626E9441AF947130092D6EC /* RSS_ReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSS_ReaderTests.swift; sourceTree = "<group>"; };
 		5626E94E1AF947A60092D6EC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5626E9501AF948EF0092D6EC /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				5626E92B1AF947130092D6EC /* AppDelegate.swift */,
-				5626E9301AF947130092D6EC /* ViewController.swift */,
+				5626E9501AF948EF0092D6EC /* TableViewController.swift */,
 				5626E9321AF947130092D6EC /* Main.storyboard */,
 				5626E9351AF947130092D6EC /* Images.xcassets */,
 				5626E9371AF947130092D6EC /* LaunchScreen.xib */,
@@ -218,10 +218,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5626E9311AF947130092D6EC /* ViewController.swift in Sources */,
 				5626E92C1AF947130092D6EC /* AppDelegate.swift in Sources */,
 				5626E94F1AF947A60092D6EC /* README.md in Sources */,
 				5626E92F1AF947130092D6EC /* RSS_Reader.xcdatamodeld in Sources */,
+				5626E9511AF948EF0092D6EC /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +415,7 @@
 				5626E94A1AF947130092D6EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5626E94B1AF947130092D6EC /* Build configuration list for PBXNativeTarget "RSS ReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +424,7 @@
 				5626E94D1AF947130092D6EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

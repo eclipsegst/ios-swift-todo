@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3CBB04B3-199B-4C68-8BD4-504B76F53E9D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RSS Reader</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6D76E95B482AD2138CD01A4C8155B22317FAE712</key>
+		<string>github.com:eclipsegst/ios-rss-reader.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RSS Reader.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6D76E95B482AD2138CD01A4C8155B22317FAE712</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:eclipsegst/ios-rss-reader.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6D76E95B482AD2138CD01A4C8155B22317FAE712</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6D76E95B482AD2138CD01A4C8155B22317FAE712</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RSS%20Reader</string>
+		</dict>
+	</array>
+</dict>
+</plist>
